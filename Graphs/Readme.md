@@ -35,9 +35,9 @@ The pattern for topsort is as follows:
   - Add the current node to `result[index]` and remove it from set of nodes in the stack
   - Return `index + 1` indicating that `result[index]` has been filled and the next value to fill must be `result[index+1]`
 
-## Problems
+# Problems
 
-### Topological Sort and Cycle Detection in a DAG
+## Topological Sort and Cycle Detection in a DAG
 
 **1. Course Schedule 2**
 
