@@ -14,10 +14,10 @@ It differs from DFS in that it is often used to solve shortest path problems on 
 
 **Shortest Paths**
 
-To keep track of the shortest path use an array/map called dist and update it as the program does bfs.
+To keep track of the shortest path use an array/map called dist and update it as the program does bfs. This can also serve as the visited array so instead of having a boolean array for visited, have an int array of distances.
 
-- Set `dist[start] = 0`
-- When exploring neighbours if neighbour is unvisited, mark as visited, enqueue it, set `parent[neighbour] = node` and set `dist[neighbour] = dist[node+1]`
+- Set `dist[start] = 0` and begin bfs.
+- When exploring neighbours if neighbour is unvisited or `dist[neighbour] != null`, enqueue it, set `parent[neighbour] = node` and set `dist[neighbour] = dist[node+1]`
 
 **Practice problems for revision**
 
