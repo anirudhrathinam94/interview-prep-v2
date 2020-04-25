@@ -1,4 +1,31 @@
 
+## BFS and Shortest Paths
+
+**BFS**
+
+It differs from DFS in that it is often used to solve shortest path problems on **unweighted graph**. We do the following to solve a bfs problem.
+
+- Initialize a queue and a boolean visited array. Insert start node in the queue and mark `visited[start] = true`
+- Initialize a null array parent if needed - this helps us reconstruct the shortest path
+- While the queue is not empty do the following
+  - dequeue the queue. Let's call this element node. Get all the neighbours of node.
+  - for all the neighbours, if it is unvisited mark it as visited, enqueue it and set `parent[neighbour] = node`.
+- Return the parent array if needed.
+
+**Shortest Paths**
+
+To keep track of the shortest path use an array/map called dist and update it as the program does bfs.
+
+- Set `dist[start] = 0`
+- When exploring neighbours if neighbour is unvisited, mark as visited, enqueue it, set `parent[neighbour] = node` and set `dist[neighbour] = dist[node+1]`
+
+**Practice problems for revision**
+
+- [Word Ladder](https://leetcode.com/problems/word-ladder/)
+- [Jump Game 4](https://leetcode.com/problems/jump-game-iv/)
+
+--------
+
 ## Topological Sort and Cycle Detection in a DAG
 
 Topological sort involves ordering a directed graph such that each node in the sorted array appears before every other node it points to. Only graphs that are both **directed** and **acyclic** can be topologically sorted.
@@ -34,6 +61,13 @@ The pattern for topsort is as follows:
   - If the index is -1, that means a cycle was detected in the previous recursive call so return -1. Otherwise continue.
   - Add the current node to `result[index]` and remove it from set of nodes in the stack
   - Return `index + 1` indicating that `result[index]` has been filled and the next value to fill must be `result[index+1]`
+
+**Practice problems for revision**
+
+- [Course Schedule 2](https://leetcode.com/problems/course-schedule-ii)
+- [Alien Dictionary](https://leetcode.com/problems/alien-dictionary)
+
+----------------
 
 # Problems
 
