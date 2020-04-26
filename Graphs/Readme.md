@@ -71,6 +71,137 @@ The pattern for topsort is as follows:
 
 # Problems
 
+## BFS and Shortest Paths
+
+**1. Word Ladder**
+
+The problem can be found on leetcode [here](https://leetcode.com/problems/word-ladder/). The code is as follows:
+
+```
+class Solution {
+    Map<String, List<String>> graph =  new HashMap<>();
+    
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if(beginWord.equals(endWord))
+            return 1;
+        wordList.add(beginWord);
+        buildGraph(wordList);
+        return dfs(beginWord, endWord);
+    }
+    
+    private int dfs(String beginWord, String endWord) {
+        Queue<String> queue = new LinkedList<>();
+        Map<String, Integer> dist = new HashMap<>();
+        queue.add(beginWord);
+        dist.put(beginWord, 1);
+        
+        while(!queue.isEmpty()) {
+            String node = queue.remove();
+            for(String neighbour: graph.get(node)) {
+                if(!dist.containsKey(neighbour)) {
+                    queue.add(neighbour);
+                    dist.put(neighbour, dist.get(node)+1);
+                    if(neighbour.equals(endWord))
+                        return dist.get(neighbour);
+                }
+            }
+        }
+        return 0;
+    }
+    
+    private void buildGraph(List<String> wordList) {
+        for(String word1: wordList) {
+            if(!graph.containsKey(word1))
+                graph.put(word1, new ArrayList<>());
+            for(String word2: wordList) {
+                if(!word1.equals(word2) && isEdge(word1, word2))
+                    graph.get(word1).add(word2);
+            }
+        }
+    }
+    
+    private boolean isEdge(String word1, String word2) {
+        int count = 0;
+        for(int i=0; i<word1.length(); i++) {
+            if(word1.charAt(i) != word2.charAt(i))
+                count++;
+            if(count > 1)
+                return false;
+        }
+        return true;
+    }
+}
+```
+
+The complexities are as follows:
+
+- Time: 
+- Space: 
+
+---------------
+
+**Jump Game 4**
+
+The problem can be found on leetcode [here](https://leetcode.com/problems/jump-game-iv/). The code is as follows:
+
+```
+class Solution {
+    
+    Map<Integer, List<Integer>> sameValues = new HashMap<>();
+    
+    public int minJumps(int[] arr) {
+        int pre = -1;
+        for(int i=0; i<arr.length; i++) {
+            if(!sameValues.containsKey(arr[i])) {
+                sameValues.put(arr[i], new ArrayList<>());
+                pre = i;
+            }
+            // we do some pruning here if we have [7,7,7] we dont need to visit the middle 7                  
+            if(i == pre || i == arr.length-1 || arr[i] != arr[i+1])
+                sameValues.get(arr[i]).add(i);
+        }
+        return bfs(arr);
+    }
+    
+    private int bfs(int[] arr) {
+        int[] dist = new int[arr.length];
+        Arrays.fill(dist, -1);
+        Queue<Integer> queue = new LinkedList<>();
+        dist[0] = 0;
+        queue.add(0);
+        int n = arr.length;
+        while(!queue.isEmpty()) {
+            int i = queue.remove();
+            int cost = dist[i];
+            if(i != 0 && dist[i-1] == -1) {
+                queue.add(i-1);
+                dist[i-1] = cost+1;
+            }
+            if(i != n-1 && dist[i+1] == -1) {
+                queue.add(i+1);
+                dist[i+1] = cost+1;
+            }
+            for(int neighbour: sameValues.get(arr[i])) {
+                if(dist[neighbour] == -1) {
+                    queue.add(neighbour);
+                    dist[neighbour] = cost+1;
+                }
+            }
+            if(i == n-1)
+                return dist[n-1];
+        }
+        return -1;
+    }
+}
+```
+
+The complexities are as follows:
+
+- Time: 
+- Space: 
+
+--------------
+
 ## Topological Sort and Cycle Detection in a DAG
 
 **1. Course Schedule 2**
