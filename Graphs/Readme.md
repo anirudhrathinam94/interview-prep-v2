@@ -22,9 +22,38 @@ To keep track of the shortest path use an array/map called dist and update it as
 **Practice problems for revision**
 
 - [Word Ladder](https://leetcode.com/problems/word-ladder/)
-- [Jump Game 4](https://leetcode.com/problems/jump-game-iv/)
+- [Jump Game 4](https://leetcode.com/problems/jump-game-iv/) (note: requires some pruning logic)
 
 --------
+
+## Dijkstra's Algorithm
+
+**BFS vs Dijkstra Implementation**
+
+Dijkstra's Algorithm can be used to find the shortest path for graphs with **non-negative** edge weights. It is similar to BFS with some differences. The differences are:
+
+| BFS | Dijkstra |
+|-|:-|
+| Uses Queue | Uses PriorityQueue (Alternatively Treemap can be used to save space) |
+| Queue stores [Node] | PriorityQueue stores [Node, Distance] pairs |
+| Queue can have at most 1 entry corresponding to each [Node] | PriorityQueue can have multiple [Node, Distance] pairs corresponding to each node |
+| We check each neighbour and only if it is unvisited we update visited array and add it to queue | We add all neighbours to PriorityQueue. Visited array is updated right when we pop the queue |
+
+**The Pattern**
+
+The general pattern for dijkstra's algorithm is:
+
+- Initialize a visited/distance array and a PriorityQueue sorted by distance that accepts [node, distance] pairs. Add [start, 0] to the PriorityQueue.
+- While the priority queue is not empty do the following:
+  - Pop the PriorityQueue - let's call this current[]. If the current node current[0] is unvisited, continue to next iteration.
+  - Otherwise update the distance/visited array with dist[current[0]] = current[1] and if current[0] is the destination node return.
+  - For all the neighbours present in current, add [neighbour, current[i] + dist(current[0], neighbour)] to the priority queue
+
+**Practice problems for revision**
+
+- [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+
+-----------
 
 ## Topological Sort and Cycle Detection in a DAG
 
