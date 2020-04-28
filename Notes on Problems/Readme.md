@@ -26,9 +26,18 @@ Regular DP problem. Expand from the center. f(i,j) is true if i=j and f(i+1, j-1
 Do `sum = sum*10 + x%10; x = x/10`. Be sure to make sure that sum lies within 32 bit int range (ie make sure sum is a long not an int).
 
 #### 8. Integer to String (atoi)
-Crappy problem. Just a bunch of edge cases.
+[Need to do this].
 
 #### 9. Palindrome Number
 Return false for negative integer. Reverse the integer storing val in a long by doing `sum = sum*10 + x%10; x = x/10`. If sum is more than max int return false else return `(int)sum == x`.
 
-#### 10. Regular Expression Matching 
+#### 10. Regular Expression Matching
+Regular DP problem. Has a bunch of cases (when characters match/dont match, when next character is a * etc) so recurrence relation will be huge.
+
+#### 11. Container with most water
+Initialize two pointers at both ends and loop while pointers dont converge. Compare current heights and greedily advance the height that is smaller calculating area at each step.
+
+#### 13. Roman to Integer
+[Need to do this]
+
+#### 14. Longest common prefix
