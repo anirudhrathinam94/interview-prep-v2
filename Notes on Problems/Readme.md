@@ -41,3 +41,4 @@ Initialize two pointers at both ends and loop while pointers dont converge. Comp
 [Need to do this]
 
 #### 14. Longest common prefix
+Basic Recursion. `f(prefix, index) = f( getPrefix(prefix, array[index]), index+1 )`.
