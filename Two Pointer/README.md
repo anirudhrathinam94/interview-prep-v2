@@ -14,8 +14,9 @@ The pattern is as follows
 
 - [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-### Smallest Substring or Subsequence that satisfies a given condition
+### Smallest Substring or Subsequence that satisfies a given condition (not exactly 2 pointer but I have put it here so I dont forget)
 
 **Practice problems for revision**
 
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+- [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) uses a similar concept maybe there is a link? (to-do)
