@@ -22,6 +22,7 @@ Questions that fall under this category are usually in the format: Select 'x' di
 
 The pattern is as follows:
 
+- **OPTIONAL:** Depending on the problem there may be an optional preprocessing step like sorting the array etc. 
 - Initialize a left pointer at start and right pointer at end.
 - While left is less than right do the following:
   - Select a[left] and a[right]. Find the value you get by selecting these 2 points. If condition is satisfied return/add to list/whatever.
