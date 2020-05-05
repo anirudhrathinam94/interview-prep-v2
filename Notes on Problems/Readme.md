@@ -42,3 +42,9 @@ Initialize two pointers at both ends and loop while pointers dont converge. Comp
 
 #### 14. Longest common prefix
 Basic Recursion. `f(prefix, index) = f( getPrefix(prefix, array[index]), index+1 )`.
+
+#### 15. 3Sum
+Converging 2 pointer. Outer loop iterates from `i=0 ... i < n-2`. Elements from `i+1...n` are covered bby 2 pointer. Duplicates are eleminated by the sorting technique (see observations).
+
+#### 16. 3Sum Closest
+Same as 3Sum except easier because you dont need to care about duplicates. Maintain a min value to keep track of min and update accordingly.
