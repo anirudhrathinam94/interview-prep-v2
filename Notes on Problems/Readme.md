@@ -48,3 +48,18 @@ Converging 2 pointer. Outer loop iterates from `i=0 ... i < n-2`. Elements from 
 
 #### 16. 3Sum Closest
 Same as 3Sum except easier because you dont need to care about duplicates. Maintain a min value to keep track of min and update accordingly.
+
+#### 19. Remove Nth Node From End of List
+Initialize dummy node before head to deal with edge cases. Initialize p1, p2 at dummy and move p2 'n' times. Then until p2 next is not null move both p1, p2. This places p1 in the node before the node to be deleted. If that node is head then p1 point to dummy. Return `dummy.next`.
+
+#### 20. Valid Parantheses
+Use stack. For multiple bracket types use stack, for single bracket type we can use counter as well. This is multiple bracket types so stack must be used.
+
+#### 21. Merge Two Sorted Lists
+Use recursion. `f(l1, l2) = f(l1.next, l2) if l1 < l2 OR f(l1, l2.next) if l1 > l2`.  This does it in place.
+
+#### 22. Generate Parentheses
+Standard backtracking problem. Set i, j as counts for open/close brackets. If i and j equals n then add to list and return. If `i < n` then add open bracket, do `f(i+1, j)` and remove open bracket (backtrack). If `i > j` then add close bracket, do `f(i, j+1)` and remove close bracket (backtrack). We need to do both these operations.
+
+#### 23. Merge k Sorted Lists (todo)
+2 ways to do this in Nlog(k) complexity. Using heap is trivial and takes n space. The other way is to do divide and conquer similar to mergesort with in place merge (see merge 2 sorted lists).
