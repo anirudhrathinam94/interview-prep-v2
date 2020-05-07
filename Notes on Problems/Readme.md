@@ -68,3 +68,12 @@ Two ways to do this in Nlog(k) complexity.
 
 #### 24. Swap Nodes in Pairs
 Initialize dummy node before head. define `f(node)` such that `[node.next ... tail]` will be swapped. Call `f(dummy)` and return `dummy.next`.
+
+#### 26. Remove Duplicates from Sorted Array
+Standard partition problem. Array being in sorted order lets us solve this by partitioning. p1 points to greatest element of first partition and p2 iterates through the list. If p2 points to element greater than p1, increment and swap.
+
+#### 27. Remove Element
+Standard partitioning problem. p1 points to end of partition containing values not equal to val.
+
+#### 28. Implement strStr()
+**Todo:** Use Rabin-Karp
