@@ -61,5 +61,10 @@ Use recursion. `f(l1, l2) = f(l1.next, l2) if l1 < l2 OR f(l1, l2.next) if l1 > 
 #### 22. Generate Parentheses
 Standard backtracking problem. Set i, j as counts for open/close brackets. If i and j equals n then add to list and return. If `i < n` then add open bracket, do `f(i+1, j)` and remove open bracket (backtrack). If `i > j` then add close bracket, do `f(i, j+1)` and remove close bracket (backtrack). We need to do both these operations.
 
-#### 23. Merge k Sorted Lists (todo)
-2 ways to do this in Nlog(k) complexity. Using heap is trivial and takes n space. The other way is to do divide and conquer similar to mergesort with in place merge (see merge 2 sorted lists).
+#### 23. Merge k Sorted Lists
+Two ways to do this in Nlog(k) complexity. 
+1. Using heap: Trivial. Create heap of size k that holds ListNodes and add first of each list. Pop heap, add min node's next to heap until heap is empty. Space is O(k).
+2. Mergesort: `f(lists, lo, hi)` stores result list in `lists[lo]`. If `lo < hi` call `f(lists, lo, mid)` and `f(lists, mid+1, hi)`. Then merge lists from `list[lo]` and `list[mid+1]` and store it in `list[lo]`. **invariant is: lo < hi** and the space is O(1).
+
+#### 24. Swap Nodes in Pairs
+Initialize dummy node before head. define `f(node)` such that `[node.next ... tail]` will be swapped. Call `f(dummy)` and return `dummy.next`.
