@@ -77,3 +77,10 @@ Standard partitioning problem. p1 points to end of partition containing values n
 
 #### 28. Implement strStr()
 **Todo:** Use Rabin-Karp
+
+#### 32. Longest Valid Parentheses
+DP pattern 2 (see dp section in this repo). Single param is needed because for every valid opening paranthesis there can only be one closing parantheses. 
+
+The tricky edge case is `f(i) = 2 + f(i+1) + f(i+2+f(i+1)) // if s[i] = '(' and s[i+1] = '(' and s[i+f(i+1)+1] = ')'`.
+
+### 33. Search in Rotated Sorted Array
