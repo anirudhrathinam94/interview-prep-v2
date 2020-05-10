@@ -99,10 +99,11 @@ A common error in Divide and Conquer algorithms like Binary Search, Quicksort an
   - For the sort algorithms, a single element array is already sorted. Additionally we get the mid and we perform actions on the left and right subarrays. For mergesort the right subarray does not exist and for quicksort both the left and right subarrays do not exist so the invariant can be: do it if `lo < hi` (although quicksort also supports `lo <= hi`)
 - The complication here is with mergesort. The problem is that we have recurrence calls before actually calling the merge.
   
-
 --------------
 
-### Binary Search variants
+## Binary Search and related algorithms
+
+### Binary Search direct variants
 
 Some binary search variants are below
 
@@ -124,3 +125,35 @@ The trick is understanding the termination condition for binary search and the v
         }
         return lo;
     }
+
+
+------------
+
+**[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)**
+
+Do not stop when first instance of mid is found. If `tgt = a[mid]` do not return but continue to search in the left and right of mid. Return only when `lo > hi`. It is easier to do this recursively because when `tgt = a[mid]` we search both sides and not just 1 side.
+
+    private void search(int[] nums, int target, int lo, int hi) {
+        if(lo > hi)
+            return;
+        int mid = (lo+hi)/2;
+        if(nums[mid] == target) {
+            p1 = Math.min(p1, mid);
+            p2 = Math.max(p2, mid);
+            search(nums, target, mid+1, hi);
+            search(nums, target, lo, mid-1);
+        } else if(nums[mid] > target)
+            search(nums, target, lo, mid-1);
+        else
+            search(nums, target, mid+1, hi);
+    }
+
+-------------
+
+**[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)**
+
+
+----------
+
+### Binary Search with modified input structure
+
