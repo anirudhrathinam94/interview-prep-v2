@@ -47,7 +47,17 @@ Code is below:
         }
         return -1;
     }
-    
+ 
+**Observations**
+
+- Here, the following happens: we choose a mid and compare it to the target. If mid is smaller we choose the subarray **after** mid and if mid is larger, we choose the subarray **before** mid. It is important to realize that **mid itself is not included in the recursive calls if there is no match**.
+
+- Another observation is that **if target is not present in the array lo is where the target would have been if it was in the array**. This can be observed by looking at how lo changes. Consider the array `[4,6]`
+  - If target = 5: 1) lo = 0, hi = 1 mid = 0. Since 4 < 5 change lo. 2) lo = 1, hi = 1, mid = 1. Since 6 > 5 change hi. 3) lo = 1, hi = 0. End loop.
+  - If target = 7: 1) lo = 0, hi = 1 mid = 0. Since 4 < 7 change lo. 2) lo = 1, hi = 1, mid = 1. Since 6 < 7 change lo. 3) lo = 2, hi = 1. End loop
+  - If target = 3: 1) lo = 0, hi = 1 mid = 0. Since 4 > 3 change hi. 2) lo = 0, hi = -1. End loop.
+  - What this means is that **if the element is not found the loop ends when `right < left` such that `a[right] < target < a[left]`**
+
 ----------    
 
 ### QuickSort and Mergesort
@@ -85,19 +95,16 @@ The algorithm is:
 
 ### Invariants in Divide and Conquer Algirithms 
 
-A common error in Divide and Conquer algorithms like Binary Search, Quicksort and Mergesort is the off-by-one error. To avoid this we need to think of the invariant before we recurse.
+A common error in Divide and Conquer algorithms like Binary Search, Quicksort and Mergesort is the off-by-one error. To avoid this we need to think of the invariant before we recurse. The thought process in choosing a valid invariant is as follows:
 
-For binary search the invariant is do the algorithm only if `lo <= hi`.
-- It does not work for `lo < hi` because then we ignore single element arrays.
-
-For merge sort the invariant is `lo < hi`.
-- It does not work for `lo<=hi` because once we divide, we sort the left and the right subarrays. Then we try to merge the second array starting from mid+1 which causes an out of bounds exception.
-
-For quick sort the invariant is `lo < hi` or `lo <= hi`
-- In the case of quicksort `lo<=hi` will work because we partition then try to sort left half and right half both of which dont exist as `lo > hi` and the recurrence is immediately rejected.
-
-Choosing a valid invariant:
-- An easy way to think about what a valid invariant can be is to consider the problem in terms of a single element array where `lo = hi`
+- Consider the problem in terms of a single element array where `lo = hi`
   - In binary search we still need to search the single array so the invariant can be: do it if `lo <= hi`
-  - For the sort algorithms, we get the mid and we perform actions on the left and right subarrays. For mergesort the right subarray does not exist and for quicksort both the left and right subarrays do not exist so the invariant can be: do it if `lo < hi`
+  - For the sort algorithms, a single element array is already sorted. Additionally we get the mid and we perform actions on the left and right subarrays. For mergesort the right subarray does not exist and for quicksort both the left and right subarrays do not exist so the invariant can be: do it if `lo < hi` (although quicksort also supports `lo <= hi`)
+- The complication here is with mergesort. The problem is that we have recurrence calls before actually calling the merge.
   
+
+--------------
+
+### Binary Search variants
+
+In binary search problems, we should think of narrowing down the search space itself.
