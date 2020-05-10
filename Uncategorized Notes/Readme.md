@@ -7,6 +7,8 @@ These should be categorized after completing the relevant study material.
 
 Divide and conquer tries to divide an array in half and recurses on either left half or right half or both.
 
+-----------
+
 ### Binary Search
 
 Input is structured in some way and we can take advantage of this by pruning the search space in half for each iteration. Here array is sorted. Look for target in aray and return -1 if not present.
@@ -46,6 +48,8 @@ Code is below:
         return -1;
     }
     
+----------    
+
 ### QuickSort and Mergesort
 
 This only covers the divide and conquer parts of the algorithm. 
@@ -77,6 +81,7 @@ The algorithm is:
         }
     }
 
+-----------
 
 ### Invariants in Divide and Conquer Algirithms 
 
@@ -92,7 +97,7 @@ For quick sort the invariant is `lo < hi` or `lo <= hi`
 - In the case of quicksort `lo<=hi` will work because we partition then try to sort left half and right half both of which dont exist as `lo > hi` and the recurrence is immediately rejected.
 
 Choosing a valid invariant:
-- An easy way to think about what a valid invariant can be is to consider the problem in terms of a single element array (where lo = hi)
+- An easy way to think about what a valid invariant can be is to consider the problem in terms of a single element array where `lo = hi`
   - In binary search we still need to search the single array so the invariant can be: do it if `lo <= hi`
   - For the sort algorithms, we get the mid and we perform actions on the left and right subarrays. For mergesort the right subarray does not exist and for quicksort both the left and right subarrays do not exist so the invariant can be: do it if `lo < hi`
   
