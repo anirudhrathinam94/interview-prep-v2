@@ -50,13 +50,10 @@ Code is below:
  
 **Observations**
 
-- Here, the following happens: we choose a mid and compare it to the target. If mid is smaller we choose the subarray **after** mid and if mid is larger, we choose the subarray **before** mid. It is important to realize that **mid itself is not included in the recursive calls if there is no match**.
+- Here, the following happens: we choose a mid and compare it to the target. If mid is smaller we choose the subarray **after** mid and if mid is larger, we choose the subarray **before** mid. It is important to realize that **mid itself may not included in the recursive calls if there is no match**.
 
-- Another observation is that **if target is not present in the array lo is where the target would have been if it was in the array**. This can be observed by looking at how lo changes. Consider the array `[4,6]`
-  - If target = 5: 1) lo = 0, hi = 1 mid = 0. Since 4 < 5 change lo. 2) lo = 1, hi = 1, mid = 1. Since 6 > 5 change hi. 3) lo = 1, hi = 0. End loop.
-  - If target = 7: 1) lo = 0, hi = 1 mid = 0. Since 4 < 7 change lo. 2) lo = 1, hi = 1, mid = 1. Since 6 < 7 change lo. 3) lo = 2, hi = 1. End loop
-  - If target = 3: 1) lo = 0, hi = 1 mid = 0. Since 4 > 3 change hi. 2) lo = 0, hi = -1. End loop.
-  - What this means is that **if the element is not found the loop ends when `right < left` such that `a[right] < target < a[left]`**
+- Another observation is that **if target is not present in the array lo is where the target would have been if it was in the array**. This can be observed by looking at how lo changes.
+  - What this means is that **if the element is not found the loop ends when `hi < lo` such that `a[hi] < target < a[lo]`**
 
 ----------    
 
@@ -107,4 +104,23 @@ A common error in Divide and Conquer algorithms like Binary Search, Quicksort an
 
 ### Binary Search variants
 
-In binary search problems, we should think of narrowing down the search space itself.
+Some binary search variants are below
+
+**[Search Insert Position](https://leetcode.com/problems/search-insert-position/)**
+
+The trick is understanding the termination condition for binary search and the values held by a[lo] and a[hi] after the loop terminates. The loop ends when `lo > hi`. Since the array is sorted it means that `a[hi] < target < a[lo]` by the time the loop ends.
+
+    public int searchInsert(int[] a, int target) {
+        int lo = 0;
+        int hi = a.length-1;
+        while(lo <= hi) {
+            int mid = (lo+hi)/2;
+            if(a[mid] == target)
+                return mid;
+            if(a[mid] > target)
+                hi = mid-1;
+            else
+                lo = mid+1;
+        }
+        return lo;
+    }
