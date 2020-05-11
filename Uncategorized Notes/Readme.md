@@ -156,6 +156,8 @@ Treat each row/col as an individual array.
 - We first identify what row to search by doing a binary search for tgt on the 0th column. If we find tgt in 0th column, then return mid. If we dont find it we can use the fact that **the search ends when `lo > hi` meaning `a[hi] < tgt < a[lo]`** and return `lo-1` as the row we need to search.
 - Then do a binary search on the row we identified to find the target.
 
+Code is below:
+
     public boolean searchMatrix(int[][] matrix, int target) {
         if(matrix.length == 0 || matrix[0].length == 0)
             return false;
