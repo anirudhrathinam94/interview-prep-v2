@@ -152,6 +152,49 @@ Do not stop when first instance of mid is found. If `tgt = a[mid]` do not return
 
 **[Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)**
 
+Treat each row/col as an individual array. 
+- We first identify what row to search by doing a binary search for tgt on the 0th column. If we find tgt in 0th column, then return mid. If we dont find it we can use the fact that **the search ends when `lo > hi` meaning `a[hi] < tgt < a[lo]`** and return `lo-1` as the row we need to search.
+- Then do a binary search on the row we identified to find the target.
+
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix.length == 0 || matrix[0].length == 0)
+            return false;
+        int row = searchRow(matrix, target);
+        if(row < 0)
+            return false;
+        return searchCol(matrix, target, row);
+    }
+    
+    private int searchRow(int[][] a, int tgt) {
+        int lo = 0;
+        int hi = a.length-1;
+        while(lo <= hi) {
+            int mid = (lo+hi)/2;
+            if(a[mid][0] == tgt)
+                return mid;
+            else if(a[mid][0] > tgt)
+                hi = mid-1;
+            else
+                lo = mid+1;
+        }
+        return lo - 1;
+    }
+    
+    private boolean searchCol(int[][] a, int tgt, int row) {
+        int lo = 0;
+        int hi = a[0].length-1;
+        while(lo <= hi) {
+            int mid = (lo+hi)/2;
+            if(a[row][mid] == tgt)
+                return true;
+            else if(a[row][mid] > tgt)
+                hi = mid-1;
+            else
+                lo = mid+1;
+        }
+        return false;
+    }
+
 
 ----------
 
