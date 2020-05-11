@@ -103,6 +103,35 @@ A common error in Divide and Conquer algorithms like Binary Search, Quicksort an
 
 ## Binary Search and related algorithms
 
+### The general search pattern
+
+For many problems it is easier to validate against the edges of the search space. If we were to validate against the edges of the search space for general binary search the algorithm would be:
+
+- Get the pivot (mid) and validate against the target. If `a[mid] = target` return.
+- Otherwise look at the left of the pivot and validate target against `a[lo] ... a[mid-1]` by comparing against the edges. 
+- If target could exist between `a[lo] ... a[mid-1]` recurse over the search space otherwise recurse over the other half.
+
+The code for this is:
+
+    private int binarySearch(int[] a, int tgt, int lo, int hi) {
+        if(lo > hi)
+            return -1;
+        int mid = (lo + hi) / 2;
+        if(a[mid] == tgt)
+            return mid;
+        else if(tgt >= a[lo] && tgt < a[mid])
+            return binarySearch(a, tgt, lo, mid-1);
+        else
+            return binarySearch(a, tgt, mid+1, hi);
+    }
+
+For regular binary search, we do not validate against the boundaries because it is obvious what the search space is. However there are many problems with structured inputs that are not sorted and for these problems, it is necessary to validate against the search space.
+
+<p style='color:red'>This is some red text.</p>
+
+
+------------------
+
 ### Binary Search direct variants
 
 Some binary search variants are below
