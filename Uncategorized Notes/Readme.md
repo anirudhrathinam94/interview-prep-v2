@@ -230,3 +230,31 @@ Code is below:
 
 ### Binary Search with modified input structure
 
+These have structured input however are not strictly sorted. The trick to a lot of these problems is to validate against the edges of the search space.
+
+**[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)**
+
+One of either `lo...mid` is sorted OR `mid...hi` has to be sorted. See what half is sorted and for the sorted half see if the target can lie within the edges. Recurse accordingly.
+
+    private int binarySearch(int[] a, int tgt, int lo, int hi) {
+        if(lo > hi)
+            return -1;
+        int mid = (lo+hi)/2;
+        if(a[mid] == tgt)
+            return mid;
+        else if(a[mid] < a[hi]) {
+            if(tgt > a[mid] && tgt <= a[hi])
+                return binarySearch(a, tgt, mid+1, hi);
+            else
+                return binarySearch(a, tgt, lo, mid-1);
+        } else {
+            if(tgt >= a[lo] && tgt < a[mid])
+                return binarySearch(a, tgt, lo, mid-1);
+            else
+                return binarySearch(a, tgt, mid+1, hi);
+        }
+    }
+
+-------------
+
+**[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)**
