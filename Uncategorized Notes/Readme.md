@@ -127,8 +127,7 @@ The code for this is:
 
 For regular binary search, we do not validate against the boundaries because it is obvious what the search space is. However there are many problems with structured inputs that are not sorted and for these problems, it is necessary to validate against the search space.
 
-<p style='color:red'>This is some red text.</p>
-
+**NOTE: When doing comparisons like `if(tgt >= a[lo] && tgt < a[mid])` avoid adding/subtracting anything to mid or you will have an array out of bounds error. It should NOT be `if(tgt >= a[lo] && tgt <= a[mid-1])` or we will get error**
 
 ------------------
 
