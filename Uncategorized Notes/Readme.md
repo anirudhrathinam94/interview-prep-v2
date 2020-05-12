@@ -281,4 +281,25 @@ The loop ends when `lo > hi`. This means `a[hi] < tgt < a[lo]` this condition ho
         return false;
     }
 
+-------------
+
+**[Find Peak Element](https://leetcode.com/problems/find-peak-element/)**
+
+A local peak is enough - no need to find global peak. So we either return mid if it is a peak else we switch to the half that has elements greater than mid.
+
+    private int binarySearch(int[] a, int lo, int hi) {
+        if(lo > hi)
+            return -1;
+        int mid = (lo+hi)/2;
+        
+        int p1 = mid-1 >= 0? a[mid-1]: Integer.MIN_VALUE;
+        int p2 = mid+1 < a.length? a[mid+1]: Integer.MIN_VALUE;
+        
+        if(a[mid] >= p1 && a[mid] >= p2)
+            return mid;
+        else if(a[mid] < p1)
+            return binarySearch(a, lo, mid-1);
+        else
+            return binarySearch(a, mid+1, hi);
+    }
 
