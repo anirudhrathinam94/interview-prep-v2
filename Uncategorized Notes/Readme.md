@@ -258,3 +258,27 @@ One of either `lo...mid` is sorted OR `mid...hi` has to be sorted. See what half
 -------------
 
 **[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)**
+
+The loop ends when `lo > hi`. This means `a[hi] < tgt < a[lo]` this condition holds even for rotated sorted arrays because towards the end, the subarray is of size 1 (aka a sorted array). In this casse a[lo] will always hold the smallest value (imagine the tgt is min value).
+
+    private int binarySearch(int[] a, int lo, int hi) {
+        if(lo > hi)
+            return a[lo];
+        int mid = (lo+hi)/2;
+        if(isLeast(a, mid))
+            return a[mid];
+        if(a[mid] < a[hi])
+            return binarySearch(a, lo, mid-1);
+        else
+            return binarySearch(a, mid+1, hi);
+    }
+    
+    private boolean isLeast(int[] a, int mid) {
+        int l = mid-1 < 0? Integer.MAX_VALUE: a[mid-1];
+        int r = mid+1 >= a.length? Integer.MAX_VALUE: a[mid+1];
+        if(a[mid] < l && a[mid] < r)
+            return true;
+        return false;
+    }
+
+
