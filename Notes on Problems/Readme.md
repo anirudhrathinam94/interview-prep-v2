@@ -93,3 +93,4 @@ Keep global variables to keep track of best values found so far initializing the
 Binary search ends when lo > hi. This means when it ends, `a[hi] < tgt < a[lo]`. Hence insert position is lo.
 
 #### 37. Sudoku Solver
+Standard backtracking problem. Pass row, col and if the current char is '.' check if all values between `1...9` is safe. If it is add value, recurse, backtrack.
