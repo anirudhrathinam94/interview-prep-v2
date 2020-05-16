@@ -83,4 +83,13 @@ DP pattern 2 (see dp section in this repo). Single param is needed because for e
 
 The tricky edge case is `f(i) = 2 + f(i+1) + f(i+2+f(i+1)) // if s[i] = '(' and s[i+1] = '(' and s[i+f(i+1)+1] = ')'`.
 
-### 33. Search in Rotated Sorted Array
+#### 33. Search in Rotated Sorted Array
+If mid is tgt then return mid. Otherwise Validate against the edges - either `lo ... mid` or `mid ... hi` will be sorted. If tgt exists in sorted half do binarysearch on that side else do binarysearch on the other side.
+
+#### 34. Find First and Last Position of Element in Sorted Array
+Keep global variables to keep track of best values found so far initializing them with max and min int values. Do binary search. If tgt is found, update global variables accordingly.
+
+#### 35. Search Insert Position
+Binary search ends when lo > hi. This means when it ends, `a[hi] < tgt < a[lo]`. Hence insert position is lo.
+
+#### 37. Sudoku Solver
