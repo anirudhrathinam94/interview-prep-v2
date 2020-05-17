@@ -1,13 +1,16 @@
 
 **Duplicates in an array**
 
-If we have to choose 2 elements in an array such that a condition is satisfied (converging 2 pointer pattern) and **if the elements must be unique** do the following:
+If we have to choose elements in an array such that a condition is satisfied and **if the elements must be unique** do the following:
 
-- Sort the array and start 2 pointers
-- If left pointer is not the start and left is not equal to its previous element **OR** right pointer is not end and right is not equal to next element, increment/decrement the pointers.
-- Otherwise do the operation.
+- Sort the array
+- If the current element/elements we are processing is NOT the first element it was initialized and if a[i] = a[i-1] then go to the next element.
 
-This comes up in [3Sum](https://leetcode.com/problems/3sum/) problem.
+Problems this comes up in include:
+
+- [3Sum](https://leetcode.com/problems/3sum/) problem.
+- [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/)
+
 
 **Edge cases for Linked List problems involving traversal/deletion**
 
