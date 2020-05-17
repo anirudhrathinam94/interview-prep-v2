@@ -94,3 +94,11 @@ Binary search ends when lo > hi. This means when it ends, `a[hi] < tgt < a[lo]`.
 
 #### 37. Sudoku Solver
 Standard backtracking problem. Pass row, col and if the current char is '.' check if all values between `1...9` is safe. If it is add value, recurse, backtrack.
+
+#### 39. Combination Sum
+Standard backtracking problem. Initialize result and chosen lists. If `tgt == 0` add chosen to result list. Else if `tgt > 0` add element to chosen, recurse starting from chosen element and undo the change.
+
+#### 40. Combination Sum II
+Same as above. To avoid duplicates, sort the array and if `i != start` and `a[i] == a[i-1]` continue to next iteration.
+
+#### 42. Trapping Rain Water
