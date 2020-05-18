@@ -45,3 +45,5 @@ The code for trapping rain water is below:
         }
         return sum;
     }
+
+- Largest Rectangle in Histogram
