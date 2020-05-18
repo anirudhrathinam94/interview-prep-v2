@@ -46,4 +46,6 @@ The code for trapping rain water is below:
         return sum;
     }
 
-- Largest Rectangle in Histogram
+### Pattern 2
+
+- [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
