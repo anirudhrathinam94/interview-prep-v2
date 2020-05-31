@@ -11,6 +11,7 @@ A second attempt at compiling notes for interview prep for various topics.
   - https://medium.com/algorithms-and-leetcode/monotonic-queue-explained-with-leetcode-problems-7db7c530c1d6
   - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
   - https://www.youtube.com/watch?v=TunTV2-griM
+  - https://medium.com/@luxy622/leetcode-by-category-monotonic-queue-ecc8b7a8b87d
   - Solve Max rectangle in matrix and sliding window maximum
 - Disjoint Set
 - Trie
