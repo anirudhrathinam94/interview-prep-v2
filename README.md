@@ -16,3 +16,6 @@ A second attempt at compiling notes for interview prep for various topics.
 - Disjoint Set
 - Trie
 - Segment Tree and Fenwick Tree
+
+DP patterns
+- https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions
