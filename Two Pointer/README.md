@@ -36,7 +36,7 @@ The pattern is as follows:
 
 ------------
 
-### Smallest Substring or Subsequence that satisfies a given condition (not exactly 2 pointer but I have put it here so I dont forget)
+### Prefix and Suffix arrays
 
 **Practice problems for revision**
 
