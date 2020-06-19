@@ -44,4 +44,5 @@ The idea is as follows:
 - Otherwise if current element `a[i]` is larger than the top of the deque keep popping the deque until either the top of the deque is larger than `a[i]` or until the deque is empty.
 
   - Before trying to add `a[i]` the deque contains the sliding window from `0...i-1`. The **maximum value** in the sliding window is the last element in the deque ie `deque.peekLast()`
+
   - If a[i] pops out any element from the deque it means that a[i] is the **next greater element** of the element it was responsible for popping out.
