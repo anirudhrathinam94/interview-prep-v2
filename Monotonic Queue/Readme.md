@@ -72,3 +72,41 @@ Here we need to find the next greater element for every element and calculate th
     } 
     
 **Example 2:** 
+
+Here we need to find the maximum of a fixed size sliding window. To remove older elements of the window from the deque we only need to check if the older element is at deque.peekLast(). The program is below.
+
+    public int[] maxSlidingWindow(int[] a, int k) {
+        int[] res = new int[a.length-k+1];
+        Deque<Integer> deque = new LinkedList<>();
+        int resIndex = 0;
+        
+        // Fill the deque with the contents of sliding window initial
+        for(int i=0; i<k; i++) {
+            while(!deque.isEmpty() && a[deque.peekFirst()] < a[i]) {
+                deque.removeFirst();
+            }
+            deque.addFirst(i);
+        }
+        
+        res[resIndex] = a[deque.peekLast()];
+        resIndex++;
+        
+        // Slide the window
+        for(int i=k; i<a.length; i++) {
+            
+            // remove leftmost element if it is in deque
+            if(a[deque.peekLast()] == a[i-k]) {
+                deque.removeLast();
+            }
+            
+            while(!deque.isEmpty() && a[deque.peekFirst()] < a[i]) {
+                deque.removeFirst();
+            }
+            deque.addFirst(i);
+            
+            res[resIndex] = a[deque.peekLast()];
+            resIndex++;
+        }
+        
+        return res;
+    }
