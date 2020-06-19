@@ -46,3 +46,29 @@ The idea is as follows:
   - Before trying to add `a[i]` the deque contains the sliding window from `0...i-1`. The **maximum value** in the sliding window is the last element in the deque ie `deque.peekLast()`
 
   - If a[i] pops out any element from the deque it means that a[i] is the **next greater element** of the element it was responsible for popping out.
+  
+
+---------------
+
+
+### Example problems for the two use cases
+
+**Example 1:** [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+
+Here we need to find the next greater element for every element and calculate the difference `next_greater(i) - i`. The program to do this is below:
+
+    public int[] dailyTemperatures(int[] a) {
+        Deque<Integer> deque = new LinkedList<>();
+        int[] res = new int[a.length];
+        
+        for(int i=0; i<a.length; i++) {
+            while(!deque.isEmpty() && a[deque.peekFirst()] < a[i]) {
+                int current = deque.removeFirst();
+                res[current] = i-current;
+            }
+            deque.addFirst(i);
+        }
+        return res;
+    } 
+    
+**Example 2:** 
