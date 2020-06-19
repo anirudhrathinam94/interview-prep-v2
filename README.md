@@ -22,3 +22,8 @@ A second attempt at compiling notes for interview prep for various topics.
 DP patterns
 - https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions
 - https://xueyuechuan.me/2018/12/04/Dynamic-Programming-State-Machine/
+
+
+Binary Search
+- https://leetcode.com/discuss/general-discussion/691825/binary-search-for-beginners-problems-patterns-sample-solutions
+- https://www.youtube.com/watch?v=GU7DpgHINWQ&feature=emb_title
