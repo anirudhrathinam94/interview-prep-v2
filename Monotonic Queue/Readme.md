@@ -71,7 +71,7 @@ Here we need to find the next greater element for every element and calculate th
         return res;
     } 
     
-**Example 2:** 
+**Example 2:** [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 
 Here we need to find the maximum of a fixed size sliding window. To remove older elements of the window from the deque we only need to check if the older element is at deque.peekLast(). The program is below.
 
