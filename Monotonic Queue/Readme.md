@@ -35,6 +35,7 @@ A monotonic queue is a data structure that can be used to find the following:
 
 1. The next greater/smaller element in a list
 2. The maximum/minimum value in a sliding window.
+3. Number of adjacent elements with at least value of current element
 
 The monotonic queue is a `Deque` that contains elements that are either increasing or decreasing. Let us consider a monotonic queue that is **decreasing** for a **variable length** sliding window as described in the previous section.
 
