@@ -45,21 +45,24 @@ The idea is as follows:
 - Otherwise if current element `a[i]` is larger than the top of the deque keep popping the deque until either the top of the deque is larger than `a[i]` or until the deque is empty.
 
   - Then add `a[i]` to the queue.
-  
+
+----------------
+
+
 To understand the three operations let's consider a monotonically increasing queue. Let us assume `a[i]` is going to be responsible for removing `current = deque.peeekFirst()`
 
 
-**The next greater/smaller element in a list**
+**1. The next greater/smaller element in a list**
 
 Since `a[i]` removes `current` to preserve monotonicity, `a[i]` is the **next smaller element** of current.
 
 
-**Maximum/minimum value in sliding window**
+**2. Maximum/minimum value in sliding window**
 
 After inserting `a[i]` the **minimum value** in the sliding window from `a[start ... i]` is held in the last element of the queue ie `deque.peekLast()`.
 
 
-**Number of adjacent elements with at least value of current element**
+**3. Number of adjacent elements with at least value of current element**
 
 If `a[i]` is replacing `current`, we can get the number of elements adjacent to `current` that have values equal to or greater than `current`. We do this operation by first **popping out current**
 
