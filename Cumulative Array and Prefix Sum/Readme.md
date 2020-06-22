@@ -25,7 +25,14 @@ There are several prefix sum problems that require us to perform prefix sum oper
 - number of i,j pairs with sum = k 
 - smallest i,j subarray with sum >= k and so on
 
-If we naively choose all values of i,j and validate the prefix sum against k, we have a solution with n^2 complexity. However since we know the value of k, we can use this knowledge to drive down the complexity.
+If we naively choose all values of i,j and validate the prefix sum against k, we have a solution with `n^2` complexity. However since we know the value of k, we can use this knowledge to drive down the complexity to a factor of `n`. An example is shown below.
+
+```
+prefix[r] - prefix[l-1] = k
+prefix[r] - k = prefix[l-1]
+```
+
+So here we can simply loop over all `r` values and try to find corresponding `prefix[l-1]` values that equal to `prefix[r] - k`. Since the prefix array is increasing, we can use techniques such as binary search, memorize counts of previous values and so on.
 
 ---------------
 
