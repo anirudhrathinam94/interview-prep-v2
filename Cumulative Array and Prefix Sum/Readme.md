@@ -40,7 +40,8 @@ So here we can simply loop over all `r` values and try to find corresponding `pr
 
 - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 - https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
-
+  - See leetcode discuss
+  - answer by krijgertje here: https://codeforces.com/blog/entry/60512
 
 
 - https://leetcode.com/problems/trapping-rain-water/
