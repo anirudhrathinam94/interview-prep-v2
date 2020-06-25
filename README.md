@@ -24,6 +24,7 @@ A second attempt at compiling notes for interview prep for various topics.
 DP patterns
 - https://leetcode.com/discuss/general-discussion/662866/dp-for-beginners-problems-patterns-sample-solutions
 - https://xueyuechuan.me/2018/12/04/Dynamic-Programming-State-Machine/
+- https://www.geeksforgeeks.org/partition-problem-dp-18/
 
 
 Binary Search
