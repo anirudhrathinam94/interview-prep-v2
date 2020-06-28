@@ -37,7 +37,7 @@ So here we can simply loop over all `r` values and try to find corresponding `pr
 ---------------
 
 - https://leetcode.com/problems/minimum-size-subarray-sum/
-
+- https://leetcode.com/problems/contiguous-array/
 - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 - https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
   - See leetcode discuss
