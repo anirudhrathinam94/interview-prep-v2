@@ -10,6 +10,8 @@ A second attempt at compiling notes for interview prep for various topics.
   - Another example is [Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/) which cannot be solved with 2 pointers although it matches the pattern. This is because negative elements count as 'removals'
 
 - Monotonic Queue
+  - https://stackoverflow.com/questions/32517315/maximal-subarray-with-length-constraint
+  
   - https://medium.com/@gregsh9.5/monotonic-queue-notes-980a019d5793 
   - https://medium.com/algorithms-and-leetcode/monotonic-queue-explained-with-leetcode-problems-7db7c530c1d6
   - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
