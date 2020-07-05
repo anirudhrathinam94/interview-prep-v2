@@ -35,3 +35,8 @@ Binary Search
 
 Topics
 - https://github.com/xiaoylu/leetcode_category
+
+## Learning resources:
+
+- Math for CP: https://codeforces.com/blog/entry/77137
+- Bridges and articulation points: https://codeforces.com/blog/entry/68138
