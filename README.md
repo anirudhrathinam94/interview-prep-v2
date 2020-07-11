@@ -41,3 +41,4 @@ Topics
 - Math for CP: https://codeforces.com/blog/entry/77137
 - Bridges and articulation points: https://codeforces.com/blog/entry/68138
 - KMP: https://www.youtube.com/watch?v=y2b94AxPlF8, https://www.youtube.com/watch?v=dyyeSKnBOjc
+- Manacher's Algorithm: https://www.youtube.com/watch?v=SV1ZaKCozS4
