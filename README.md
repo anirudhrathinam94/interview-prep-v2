@@ -40,5 +40,13 @@ Topics
 
 - Math for CP: https://codeforces.com/blog/entry/77137
 - Bridges and articulation points: https://codeforces.com/blog/entry/68138
+  - Note: there is a much better explanation by algorithms live on this
 - KMP: https://www.youtube.com/watch?v=y2b94AxPlF8, https://www.youtube.com/watch?v=dyyeSKnBOjc
 - Manacher's Algorithm: https://www.youtube.com/watch?v=SV1ZaKCozS4
+
+
+## Todo:
+
+- Is there a link between dp involving preprocessing input vs dp derived through recurrence?
+  - Examine recurrence of buy/sell stock problems and compare it vs preprocessing input structure. Link below:
+  - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
