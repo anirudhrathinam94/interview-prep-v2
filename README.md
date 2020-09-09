@@ -5,6 +5,8 @@ A second attempt at compiling notes for interview prep for various topics.
 
 ### List of additional data structures not part of collections
 
+- Asymptotic notations playlist: https://www.youtube.com/watch?v=lRD35H39o_E&list=PLSVu1-lON6Lwr2u_VtLcAxtVAZge9sttL&index=2&t=0s
+
 - Cumulative Array
   - Prefix sum vs 2 pointer - what can/cannot be solved by 2 pointer: https://leetcode.com/problems/subarray-sum-equals-k/discuss/301242/General-summary-of-what-kind-of-problem-can-cannot-solved-by-Two-Pointers
   - Another example is [Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/) which cannot be solved with 2 pointers although it matches the pattern. This is because negative elements count as 'removals'
