@@ -102,3 +102,6 @@ Standard backtracking problem. Initialize result and chosen lists. If `tgt == 0`
 Same as above. To avoid duplicates, sort the array and if `i != start` and `a[i] == a[i-1]` continue to next iteration.
 
 #### 42. Trapping Rain Water
+
+#### 53. Maximum subarray
+Kadane's algorithm. We maintain a cache `dp[]` where `dp[i] = max(a[i] + dp[i-1], a[i])`. We then get the max element in `dp[i]`. Since `dp[i]` depends only on `dp[i-1]` it can be reduced to constant space complexity.
